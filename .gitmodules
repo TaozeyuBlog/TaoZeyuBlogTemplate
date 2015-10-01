@@ -1,0 +1,7 @@
+[submodule "Calico"]
+	path = Calico
+	url = git@github.com:Moskize91/Calico.git
+
+[submodule "BlogContent"]
+	path = BlogContent
+    url = git@github.com-moskize91:Moskize91/Moskize91.github.io.git
