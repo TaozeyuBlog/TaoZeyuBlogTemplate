@@ -2,10 +2,10 @@
 	path = Calico
 	url = git@github.com:Moskize91/Calico.git
 
-[submodule "resource"]
+[submodule "TaozeyuBlogResource"]
 	path = resource
 	url = git@github.com:TaozeyuBlog/TaozeyuBlogResource.git
 
-[submodule "BlogContent"]
+[submodule "Moskize91.github.io"]
 	path = BlogContent
 	url = git@github.com:Moskize91/Moskize91.github.io.git
