@@ -4,4 +4,8 @@
 
 [submodule "resource"]
 	path = resource
-    url = git@github.com-moskize91:Moskize91/Moskize91.github.io.git
+	url = git@github.com:TaozeyuBlog/TaozeyuBlogResource.git
+
+[submodule "BlogContent"]
+	path = BlogContent
+	url = git@github.com:Moskize91/Moskize91.github.io.git
