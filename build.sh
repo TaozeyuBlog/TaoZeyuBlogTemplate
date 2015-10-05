@@ -1,1 +1,1 @@
-java -jar Calico/release/Calico-debug.jar ./ ./ /index.html
+java -jar Calico/release/Calico-debug.jar ./ ./BlogContent /index.html
