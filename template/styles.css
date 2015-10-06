@@ -1,0 +1,44 @@
+body {
+  margin: 0px;
+}
+
+a img{
+  border: 0px;
+}
+
+body {
+	text-align: center;
+}
+
+.mdl-layout__content {
+	text-align: left;
+	width: 65em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3em;
+	margin-bottom: 7em;
+	padding: 1em 1em;
+}
+
+.my-icon {
+	width: 230;
+	height: 230;
+	background: url('/Users/taozeyu/Codes/MyProjects/Web/TaoZeyuBlog/template/icon/my-icon.jpeg') center / cover;
+}
+
+.my-icon > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.my-icon__filename {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.personal-card {
+	margin-left: 0.5em;
+	width: 27em;
+}
