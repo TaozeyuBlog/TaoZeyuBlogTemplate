@@ -1,24 +1,21 @@
-<div class="mdl-grid personal-card mdl-card mdl-shadow--2dp">
-    <div class="my-icon"></div>
-	<div class="my-intro">
-		<div class="mdl-card__title">
-			<h2 class="mdl-card__title-text">moskize</h2>
-			</div>
-			<div class="mdl-card__supporting-text">
-				Hi，这里是 moskize 的博客。我会定期添加一些有趣的东西上去。
-            </div>
-		</div>
-</div>
+<% var currentPage = parseInt(params); %>
 
 <div class="details">
+
     <%  var pagesParams = {
-            currentPage :0,
+            currentPage : currentPage,
             className : "mdl-button mdl-js-button",
+            hrefGenerator : function(page) {
+                if (page == 0) {
+                    return "/";
+                } else {
+                    return ParamsHelper.generate("/", {page:page}) +".html";
+                }
+            },
         };
         var pages = R.dir("/articles").allPages();
     %>
-
-	<% for each(var page in pages.subArrayOnPage(pagesParams)) { %>
+    <% for each(var page in pages.subArrayOnPage(pagesParams)) { %>
     
 	<div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
     	<div class="mdl-card__supporting-text">
@@ -26,8 +23,7 @@
 			<%= page.getAbstractContent() %>
     	</div>
 		<div class="mdl-card__actions">
-            <% Log.i(page.getPath()) %>
-    		<a href="/<%= page.getPath() %>.html" class="mdl-button">阅读这篇文章</a>
+            <a href="/<%= page.getPath() %>.html" class="mdl-button">阅读这篇文章</a>
     	</div>
 	</div>
 	
