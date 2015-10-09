@@ -23,7 +23,7 @@ body {
 	width: 230;
 	height: 230;
 	margin: 0.5em;
-	background: url('/Users/taozeyu/Codes/MyProjects/Web/TaoZeyuBlog/template/icon/my-icon.jpeg') center / cover;
+	background: url('/icon/my-icon.jpeg') center / cover;
 }
 
 .my-icon > .mdl-card__actions {

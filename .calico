@@ -1,0 +1,7 @@
+port 8080
+
+resource resource
+template template
+target BlogContent
+root /main.html
+debug-working-directory /Users/taozeyu/Codes/MyProjects/Java/Calico/

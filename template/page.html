@@ -15,21 +15,19 @@
         };
         var pages = R.dir("/articles").allPages();
     %>
-    <% for each(var page in pages.subArrayOnPage(pagesParams)) { %>
     
 	<div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-    	<div class="mdl-card__supporting-text">
+    <% for each(var page in pages.subArrayOnPage(pagesParams)) { %>
+        	<div class="mdl-card__supporting-text">
         	<h4><%= page.get("title") %></h4>
 			<%= page.getAbstractContent() %>
     	</div>
-		<div class="mdl-card__actions">
-            <a href="/<%= page.getPath() %>.html" class="mdl-button">阅读这篇文章</a>
+        <div class="mdl-card__actions">
+            <a href="<%= page.getPath() %>.html" class="mdl-button">阅读这篇文章</a>
     	</div>
-	</div>
-	
+        <HR/>
 	<% } %>
-		<div class="pages mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-    	<nav class="mdl-navigation"><% pages.pagesConstructor(pagesParams); %></nav>
+        <nav class="pages mdl-navigation"><% pages.pagesConstructor(pagesParams); %></nav>
 	</div>
 	
 </div>
