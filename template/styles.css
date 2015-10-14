@@ -2,15 +2,54 @@ body {
   margin: 0px;
 }
 
+HR {
+	margin: 0;
+	padding: 0;
+}
+
 a img{
   border: 0px;
+}
+
+a {
+	text-decoration: none;
 }
 
 body {
 	text-align: center;
 }
 
-.mdl-layout__content {
+.card {
+	margin: 0.5em;
+	background-color: white;
+	box-shadow:0 0 0.5em rgba(0,0,0,.15);
+}
+
+.tzy-header {
+	padding: 2em;
+   	background-color: #5680d4;
+}
+
+.tzy-header__title {
+	float : left;
+}
+
+.tzy-header__title a {
+	font-size: 24;
+	color: white;
+}
+
+.tzy-header__elements {
+	float: right;
+}
+
+.tzy-header__elements a {
+	margin: 0em 0.4em;
+	font-size: 19;
+	color: white;
+}
+
+.tzy-content {
 	text-align: left;
 	max-width: 65em;
 	width: 100%;
@@ -19,28 +58,21 @@ body {
 	padding: 3em 0;
 }
 
-.my-icon {
+.tzy-intro-card {
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+.tzy-intro-card h1 {
+	font-size: 27;
+}
+
+.tzy-intro-card__icon {
 	width: 230;
 	height: 230;
-	margin: 0.5em;
+	margin-right: 2.5em;
+	float: left;
 	background: url('/icon/my-icon.jpeg') center / cover;
-}
-
-.my-icon > .mdl-card__actions {
-  height: 52px;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.my-icon__filename {
-  color: #fff;
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.my-intro
-{
-	width: 20em;
 }
 
 .personal-card {
@@ -49,11 +81,30 @@ body {
 	width: 37em;
 }
 
-.details {
-	margin: 2em 0;
+.tzy-details {
+	color: #5d5d5d;
 }
 
-.pages {
-	margin-top: 1em;
-	background-color: white;
+.tzy-details a {
+	color: #5d5d5d;
+	text-decoration: none;
+}
+
+.tzy-details__footer {
+	padding: 1em 0 0.5em 1em;
+	background-color: #aeaeae;
+	font-size 26;
+	color: white;
+}
+
+.tzy-details__footer a {
+	color: white;
+}
+
+.tzy-details__article {
+	padding: 1em 2em 3em 2em;
+}
+
+.tzy-details__pages {
+	background-color: #f4f4f4;
 }

@@ -6,7 +6,7 @@
     }
 %>
 
-<div class="details">
+<div class="tzy-details card">
 
     <%  var pagesParams = {
             currentPage : currentPage,
@@ -26,8 +26,6 @@
         };
     %>
     
-    <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-
     <% if(!session.hideNodeTitle) { 
         var nodes = R.config("/nodes");
         var nodeName = "全部文章";
@@ -38,22 +36,18 @@
             }
         }
     %>
-        <div class="mdl-card__supporting-text">
-            <h4><%= nodeName %> <a href="/" class="mdl-button" style="float:right;">返回首页</a></h4>
-    	</div>
-        <HR/>
+    <div class="tzy-details__footer">
+    	<a href="/">首页</a>
+    	&raquo; <%= nodeName %>
+	</div>
     <% } %>
     
     <% for each(var page in pages.subArrayOnPage(pagesParams)) { %>
-        <div class="mdl-card__supporting-text">
-        	<h4><%= page.get("title") %></h4>
-			<%= page.getAbstractContent() %>
-    	</div>
-        <div class="mdl-card__actions">
-            <a href="<%= page.getPath() %>.html" class="mdl-button">阅读这篇文章</a>
-    	</div>
-        <HR/>
-	<% } %>
-        <nav class="pages mdl-navigation"><% pages.pagesConstructor(pagesParams); %></nav>
+    <HR/>
+    <div class="tzy-details__article">
+    	<h4><a href="<%= page.getPath() %>.html"><%= page.get("title") %></a></h4>
+		<%= page.getAbstractContent(200) %>
 	</div>
+	<% } %>
+        <nav class="tzy-details__pages"><% pages.pagesConstructor(pagesParams); %></nav>
 </div>

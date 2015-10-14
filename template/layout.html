@@ -8,24 +8,24 @@
 	</head>
 	<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     
-    <header class="mdl-layout--fixed-header">
-      <dive class="mdl-layout__header mdl-layout__header--waterfall mdl-layout--fixed-header">
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">
-            TaoZeyu's Blog
-          </span>
-          <div class="mdl-layout-spacer"></div>
-          <% var nodes = R.config("/nodes"); %>
-          <nav class="mdl-navigation">
+    <header class="tzy-header">
+        <span class="tzy-header__title">
+            <a href="/">TaoZeyu's Blog</a>
+        </span>
+        <div class="tzy-header__elements">
+        <% var nodes = R.config("/nodes"); %>
+          <nav>
               <% for (var nodeName in nodes) { %>
-              <a class="mdl-navigation__link" href="/nodes/<%= nodes[nodeName] %>"><%= nodeName %></a>
+              <a href="/nodes/<%= nodes[nodeName] %>.html">
+                <%= nodeName %>
+              </a>
               <% } %>
-            </nav>
+          </nav>
         </div>
-      </dive>
+        <div style="clear: both;"/>
     </header>
       
-    <main class="mdl-layout__content">
+    <main class="tzy-content">
 	    <%~ yield %>
     </main>
     
