@@ -1,15 +1,81 @@
-<% var page = R.page("/articles/"+ params); %>
+<% 	var page = R.page("/articles/"+ params),
+		groupName = page.getParent().replaceAll("/articles/", ""),
+		groupTitle = null; 
+	
+	(function(){
+		var groupIndex = R.pageIfExist("/articles/" + groupName + "/index");
+		if (groupIndex) {
+			groupTitle = groupIndex.get("title");
+		} else {
+			groupName = null;
+		}
+	})();
+	
+%>
 
-<div class="details">
+<div class="tzy-details">
     
-	<div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+	<div class="card">
         <div>
-             <a href="/" class="mdl-button" style="float:right;">返回首页</a>
+        	<a href="/" class="mdl-button">返回首页</a>
+             <% if (groupName && page.get("group") != "index") { %>
+             	&gt;&gt;
+                  <a href="/<%= groupName %>/index.html" class="mdl-button"><%= groupTitle %></a>
+             <% } %>
+             <div style="clear: both;"/>
         </div>
-    	<div class="mdl-card__supporting-text">
-        	<h1><%= page.get("title") %></h1>   
+    	<div class="tzy-article">
+    		<h1 class="title"><%= page.get("title") %></h1>
+    		<% if (page.get("author") || page.get("source")) { %>
+    			<div class="declare">
+    			<% if (page.get("translation")) {%>
+    				该文章属本站翻译，
+    			<% } else if (page.get("author")) { %>
+    				该文章属转载，
+    			<% } %>
+    			<% if (page.get("author")) {%>
+    				作者<%= page.get("author") %>，
+    			<% } %>
+    			<% if (page.get("source")) {%>
+    				点击<a target="_blank" href="<%= page.get('source') %>">这里</a>查看原文
+    			<% } %>。
+    			</div>
+    		<% } %>
             <%= page.getHtmlContent() %>
         </div>
+        
+        <% 	if (groupName && page.get("group") == "index") {
+		    	var groupName = page.getPath().replaceAll(/(^\/article|\/index$)/g, "");
+		    	var groupPages = R.dir(page.getParent()).allPages().sort("name");
+		    	
+		    	for each(var groupPage in groupPages) {
+		    		if (groupPage.get("group") == "index") {
+		    			continue;
+		    		}
+        	%>
+	             	<HR/>
+	             	<div class="tzy-details__article">
+	             		<h4><a href="<%= groupPage.getPath().substr('/articles'.length) %>.html"><%= groupPage.get("title") %></a></h4>
+	             		<%= groupPage.getAbstractContent(100) %>
+	             	</div>
+        <% 		}
+         	} else {%>
+         	<HR/>
+         	<div class="tzy-details__comments">
+ 	            <!-- Duoshuo Comment BEGIN -->
+ 	            <div class="ds-thread"></div>
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"taozeyu"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = 'http://static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] 
+                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+ 	         </div>
+        <%  } %>
     </div>
-	
 </div>

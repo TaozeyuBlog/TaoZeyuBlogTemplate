@@ -108,3 +108,118 @@ body {
 .tzy-details__pages {
 	background-color: #f4f4f4;
 }
+
+.tzy-details__comments {
+	padding: 2em 3em;
+}
+
+.tzy-article {
+	padding: 3em;
+	font-size: 23;
+}
+
+.tzy-article p {
+	text-indent: 2em;
+}
+
+.tzy-article .title {
+	margin: 1em;
+	font-size: 29;
+	color: #000000;
+}
+
+.tzy-article .declare {
+	font-size: 14;
+	color: #999999;
+	text-align: right;
+	margin-bottom: 1em;
+}
+
+.tzy-article .declare a {
+	font-size: 14;
+	color: #4c4c4c;
+}
+
+.tzy-article a {
+	color: #ea048a;
+	text-decoration: underline;
+}
+
+.tzy-article img {
+	margin: 1.7em 0;
+}
+.tzy-article .highlight {
+	font-size: 15;
+	background-color: #efefef;
+	border: 1px solid #c3c3c3;
+}
+
+.tzy-article blockquote {
+	background-color: #efefef;
+	border-left-style: solid;
+	border-left-color: #929292;
+	position: relative;
+	right: 1em;
+	padding: 0.8em 0.5em 0.8em 2em;
+}
+
+.tzy-article blockquote p {
+	text-indent: 0;
+}
+
+.tzy-article blockquote:before
+{ 
+	content:"";
+	padding: 0;
+	margin: 0;
+}
+
+.tzy-article blockquote:after
+{ 
+	content:"";
+	padding: 0;
+	margin: 0;
+}
+
+.tzy-article div.highlight {
+	padding: 0.5em 0.5px 0.5px 2.5em;
+	border-radius: 0.5em;
+	overflow: scroll;
+}
+
+.tzy-article span.highlight {
+	padding: 0.25em 0.4em;
+	margin: 0em 0.25em;
+	border-radius: 0.25em;
+}
+
+.tzy-article h1 {
+	margin-top: 3em;
+	font-size: 27;
+}
+
+.tzy-article h2 {
+	margin-top: 2.5em;
+	font-size: 25;
+}
+
+.tzy-article h3 {
+	margin-top: 2.5em;
+	font-size: 25;
+}
+.tzy-article h4 {
+	margin-top: 2em;
+	font-size: 23;
+}
+.tzy-article h5 {
+	margin-top: 2em;
+	font-size: 23;
+}
+.tzy-article h6 {
+	margin-top: 2em;
+	font-size: 23;
+}
+.tzy-article h7 {
+	margin-top: 2em;
+	font-size: 23;
+}

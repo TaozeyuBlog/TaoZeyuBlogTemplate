@@ -2,8 +2,21 @@
 
     var pages = R.dir("/articles").allPages();
     if (session.node) {
-        pages = pages.filter({node : session.node});
+        pages = pages.filter(function(page) {
+        	var node = page.get("node");
+        	if (!node) {
+	        	var groupIndex = R.dir(page.getParent()).page("index");
+	        		
+	        	if (groupIndex && groupIndex.get("group") == "index") {
+	        		node = groupIndex.get("node");
+	        	}
+        	}
+        	return node == session.node;
+        });
     }
+    pages = pages.filter(function(page) {
+    	return page.get("visible") != "false";
+    });
 %>
 
 <div class="tzy-details card">
@@ -45,7 +58,7 @@
     <% for each(var page in pages.subArrayOnPage(pagesParams)) { %>
     <HR/>
     <div class="tzy-details__article">
-    	<h4><a href="<%= page.getPath() %>.html"><%= page.get("title") %></a></h4>
+    	<h4><a href="<%= page.getPath().substr('/articles'.length) %>.html"><%= page.get("title") %></a></h4>
 		<%= page.getAbstractContent(200) %>
 	</div>
 	<% } %>
