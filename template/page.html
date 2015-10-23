@@ -17,6 +17,28 @@
     pages = pages.filter(function(page) {
     	return page.get("visible") != "false";
     });
+    
+    // old article don't have date before name.
+    pages = pages.sort(function(p1, p2) {
+    	
+    	function addDateForName(name) {
+    		if (!name.matches(/\d{4}\-\d{2}\-\d{2}/)) {
+    			name = "2014-10-01-" + name;
+    		}
+    		return name;
+    	}
+    	
+    	var n1 = addDateForName(p1.getName()),
+    		n2 = addDateForName(p2.getName());
+    		
+    	if (n1 == n2) {
+    		return 0;
+    	} else if (n1 > n2) {
+    		return 1;
+    	} else {
+    		return -1;
+    	}
+    });
 %>
 
 <div class="tzy-details card">
