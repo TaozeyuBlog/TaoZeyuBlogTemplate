@@ -4,4 +4,5 @@ resource resource
 template template
 target BlogContent
 root /main.html
+ignore baidu_verify_RtFAxAJIKE\.html README\.md .*\.esproj
 debug-working-directory /Users/taozeyu/Codes/MyProjects/Java/Calico/
