@@ -5,6 +5,11 @@
 		<link rel="stylesheet" href="/mdl-style.css" />
 		<script src="/mdl-min.js"></script>
 		<link rel="stylesheet" href="/styles.css">
+		<title>
+			<% if (template == "/index.html") { %>
+				<%= R.page("/articles/"+ params).get("title") %> - 
+			<% } %> moskize 的博客
+		</title>
 	</head>
 	<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     
