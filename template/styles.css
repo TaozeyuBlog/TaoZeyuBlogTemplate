@@ -178,12 +178,11 @@ body {
 }
 
 .tzy-article blockquote {
-	background-color: #efefef;
 	border-left-style: solid;
 	border-left-color: #929292;
 	position: relative;
 	right: 1em;
-	padding: 0.8em 0.5em 0.8em 2em;
+	padding: 0.8em 0 0.8em 1em;
 }
 
 .tzy-article blockquote p {
