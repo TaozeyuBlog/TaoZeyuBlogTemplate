@@ -15,8 +15,8 @@
 
 <div class="tzy-details">
     
-	<div class="card">
-        <div>
+	<div class="card util-centered-container">
+        <div class="tzy-details__header">
         	<a href="/" class="mdl-button">返回首页</a>
              <% if (groupName && page.get("group") != "index") { %>
              	&gt;&gt;
@@ -24,58 +24,92 @@
              <% } %>
              <div style="clear: both;"/>
         </div>
-    	<div class="tzy-article">
-    		<h1 class="title"><%= page.get("title") %></h1>
-    		<% if (page.get("author") || page.get("source")) { %>
-    			<div class="declare">
-    			<% if (page.get("translation")) {%>
-    				该文章属本站翻译，
-    			<% } else if (page.get("author")) { %>
-    				该文章属转载，
-    			<% } %>
-    			<% if (page.get("author")) {%>
-    				作者<%= page.get("author") %>，
-    			<% } %>
-    			<% if (page.get("source")) {%>
-    				点击<a target="_blank" href="<%= page.get('source') %>">这里</a>查看原文
-    			<% } %>。
-    			</div>
-    		<% } %>
-            <%= page.getHtmlContent() %>
-        </div>
         
-        <% 	if (groupName && page.get("group") == "index") {
-		    	var groupName = page.getPath().replaceAll(/(^\/article|\/index$)/g, "");
-		    	var groupPages = R.dir(page.getParent()).allPages().sort("name");
-		    	
-		    	for each(var groupPage in groupPages) {
-		    		if (groupPage.get("group") == "index") {
-		    			continue;
-		    		}
-        	%>
-	             	<HR/>
-	             	<div class="tzy-details__article">
-	             		<h4><a href="<%= groupPage.getPath().substr('/articles'.length) %>.html"><%= groupPage.get("title") %></a></h4>
-	             		<%= groupPage.getAbstractContent(100) %>
-	             	</div>
-        <% 		}
-         	} else {%>
-         	<HR/>
-         	<div class="tzy-details__comments">
- 	            <!-- Duoshuo Comment BEGIN -->
- 	            <div class="ds-thread"></div>
-                <script type="text/javascript">
-                    var duoshuoQuery = {short_name:"taozeyu"};
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';ds.async = true;
-                        ds.src = 'http://static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] 
-                        || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
- 	         </div>
-        <%  } %>
+        <div class="tzy-details__content util-centered-content">
+        
+	    	<div class="tzy-article">
+	    		<h1 class="title"><%= page.get("title") %></h1>
+	    		<% if (page.get("author") || page.get("source")) { %>
+	    			<div class="declare">
+	    			<% if (page.get("translation")) {%>
+	    				该文章属本站翻译，
+	    			<% } else if (page.get("author")) { %>
+	    				该文章属转载，
+	    			<% } %>
+	    			<% if (page.get("author")) {%>
+	    				作者<%= page.get("author") %>，
+	    			<% } %>
+	    			<% if (page.get("source")) {%>
+	    				点击<a target="_blank" href="<%= page.get('source') %>">这里</a>查看原文
+	    			<% } %>。
+	    			</div>
+	    		<% } %>
+	            <%= page.getHtmlContent() %>
+	        	</div>
+	        </div>
+	     </div>
+	     
+	        <% 	if (groupName && page.get("group") == "index") {
+			    	var groupName = page.getPath().replaceAll(/(^\/article|\/index$)/g, "");
+			    	var groupPages = R.dir(page.getParent()).allPages().sort("name");
+			    	
+			    	for each(var groupPage in groupPages) {
+			    		if (groupPage.get("group") == "index") {
+			    			continue;
+			    		}
+	        	%>
+		             	<HR/>
+		             	<div class="tzy-details__article">
+		             		<h4><a href="<%= groupPage.getPath().substr('/articles'.length) %>.html"><%= groupPage.get("title") %></a></h4>
+		             		<%= groupPage.getAbstractContent(100) %>
+		             	</div>
+	        <% 		}
+	         	} else {%>
+	         	<HR/>
+	         	<div class="tzy-details__content util-centered-content">
+		         	<div class="tzy-details__comments">
+		 	            <!-- Duoshuo Comment BEGIN -->
+		 	            <div class="ds-thread"></div>
+		                <script type="text/javascript">
+		                    var duoshuoQuery = {short_name:"taozeyu"};
+		                    (function() {
+		                        var ds = document.createElement('script');
+		                        ds.type = 'text/javascript';ds.async = true;
+		                        ds.src = 'http://static.duoshuo.com/embed.js';
+		                        ds.charset = 'UTF-8';
+		                        (document.getElementsByTagName('head')[0] 
+		                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+		                    })();
+		                </script>
+		 	         </div>
+	 	         </div>
+	        <%  } %>
     </div>
+    <script type="text/javascript">
+    	$(".tzy-details img").each(function (){
+    		var src = $(this).attr("src"),
+    			alt = $(this).attr("alt");
+    		
+    		var html = ['<a class="fancybox-images" href="', src, '" title="',
+    					 alt, '"><img src="', src, '" alt="', alt, '"/></a>'].join("");
+    		
+    		$(this).after(html);
+    		$(this).remove();
+    	});
+    	$('.tzy-details .fancybox-images').fancybox({
+            prevEffect : 'none',
+            nextEffect : 'none',
+
+            closeBtn  : true,
+            arrows    : true,
+            nextClick : true,
+
+            helpers : {
+                thumbs : {
+                    width  : 50,
+                    height : 50
+                }
+            }
+        });
+    </script>
 </div>
