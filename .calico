@@ -1,0 +1,17 @@
+
+conf.port = 8080;
+
+conf.template_directory = "./";
+conf.target_directory = "../Moskize91.github.io";
+conf.resource_directory = "../";
+
+conf.root_page = "/main.html";
+
+// port 8080
+// resource resource
+// template template
+// target BlogContent
+// root /main.html
+// ignore-copy baidu_verify_RtFAxAJIKE\.html README\.md .*\.esproj
+// ignore-clean .*\.git.*
+// debug-working-directory /Users/taozeyu/Codes/MyProjects/Java/Calico/
