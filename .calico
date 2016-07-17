@@ -1,9 +1,0 @@
-port 8080
-
-resource resource
-template template
-target BlogContent
-root /main.html
-ignore-copy baidu_verify_RtFAxAJIKE\.html README\.md .*\.esproj
-ignore-clean .*\.git.*
-debug-working-directory /Users/taozeyu/Codes/MyProjects/Java/Calico/
