@@ -9,7 +9,9 @@ Articles.prototype.collect = function(dirs) {
     dirs.forEach(function(dir) {
         self.collect(dir.dirs());
         dir.pages().forEach(function (page) {
-            self.articles.push(page);
+            if (page.get("published")) {
+                self.articles.push(page);
+            }
         });
     });
     return this;
