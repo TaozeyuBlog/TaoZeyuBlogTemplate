@@ -6,14 +6,14 @@ exports.path_of_article = function (article) {
 
 exports.path_of_group = function(group, page_index) {
     if (page_index == 0) {
-        return "/group/"+ group.name;
+        return ["/group", group.name +".html"].join("/");
     }
-    return "/group/"+ group.name +"/page/"+ page_index;
+    return ["/group", group.name, "page", page_index +".html"].join("/");
 }
 
 exports.path_of_total_article_page = function(page_index) {
     if (page_index == 0) {
         return "/";
     }
-    return ["/page", page_index].join("/");
+    return ["/page", page_index +".html"].join("/");
 }
