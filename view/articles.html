@@ -1,0 +1,33 @@
+
+<% articles.forEach(function(article) { %>
+
+<% var article_name = NameHandler.title_from_article_name(article.name); %>
+<% var date = NameHandler.date_from_article_name(article.name) %>
+
+<article class="post type-post status-publish format-standard hentry category-casper tag-test-tag">
+		    <header class="post-header">
+        		<span class="post-meta">
+			    <time class="entry-date published"><%= date %></time>
+				</span>
+		        <h1 class="post-title"><a href="<%= Router.path_of_article(article) %>" rel="bookmark"><%= article_name %></a></h1>
+         
+    </header>
+	<section class="post-content">
+<p><%= article.getAbstractContent(200) %><a href="<%= Router.path_of_article(article) %>" class="more-link">［more &nbsp;］<span class="meta-nav">→</span></a></p>
+	    		<div class="clear">&nbsp;</div>
+	</section>
+</article><!-- #post-## -->
+
+<% });%>
+
+<nav class="pagination navigation paging-navigation" role="navigation">
+    <div class="nav-links">
+        <div class="older-posts">
+            <a href="http://lacymorrow.com/projects/casper/?paged=2">
+                Older Posts <span class="meta-nav">→</span>
+            </a>
+        </div>
+        <div class="page-number">Page 1 of 2</div>	
+    </div><!-- .nav-links -->
+</nav><!-- .navigation -->
+    
