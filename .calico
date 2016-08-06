@@ -20,7 +20,7 @@ conf.redirect = {
 
     "/software/2014/03/14/concurrent-hash-source-code-analyze.html" : "/article/2014-03-14-yuan-ma-fen-xi-wu-suo-dan-xian-cheng-an-quan-de-bing-fa-ha-xi-ying-she-ConcurrentHashMap.html",
 
-    "software/2014/03/26/eleven-important-database-designing-rules-which-I-follow.html" : 
+    "/software/2014/03/26/eleven-important-database-designing-rules-which-I-follow.html" : 
     "/article/2014-03-26-wei-ruan-gong-cheng-shi-jian-yi-de-11-tiao-shu-ju-ku-she-ji-zhun-ze.html",
 
     "/software/2014/03/15/jvm-class-loader.html" : "/article/2014-03-14-JVM-lei-zhuang-zai-ji-zhi-de-jie-xi-yi-ji-re-geng-xin-de-tan-tao-yi.html",
