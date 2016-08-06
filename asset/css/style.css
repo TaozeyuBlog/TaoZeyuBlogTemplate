@@ -650,10 +650,6 @@ table
 {
     content: '\f002';
 }
-.icon-envelope-o:before
-{
-    content: '\f003';
-}
 .icon-heart:before
 {
     content: '\f004';
@@ -720,10 +716,6 @@ table
 .icon-trash-o:before
 {
     content: '\f014';
-}
-.icon-home:before
-{
-    content: '\f015';
 }
 .icon-file-o:before
 {
@@ -1453,10 +1445,6 @@ table
 {
     content: '\f0de';
 }
-.icon-envelope:before
-{
-    content: '\f0e0';
-}
 .icon-linkedin:before
 {
     content: '\f0e1';
@@ -1651,10 +1639,6 @@ table
 .icon-reply:before
 {
     content: '\f112';
-}
-.icon-github-alt:before
-{
-    content: '\f113';
 }
 .icon-folder-o:before
 {
@@ -2649,7 +2633,6 @@ table
 .icon-gear:before,
 .icon-cog:before,
 .icon-trash-o:before,
-.icon-home:before,
 .icon-file-o:before,
 .icon-clock-o:before,
 .icon-road:before,
@@ -2847,7 +2830,6 @@ table
 .icon-sort-desc:before,
 .icon-sort-up:before,
 .icon-sort-asc:before,
-.icon-envelope:before,
 .icon-linkedin:before,
 .icon-rotate-left:before,
 .icon-undo:before,
@@ -2902,7 +2884,6 @@ table
 .icon-circle:before,
 .icon-mail-reply:before,
 .icon-reply:before,
-.icon-github-alt:before,
 .icon-folder-o:before,
 .icon-folder-open-o:before,
 .icon-smile-o:before,
@@ -4679,6 +4660,11 @@ body.home .site-head:after
 .social-icons
 {
     margin-top: 15px;
+}
+.social-icons img
+{
+    width : 1.3em;
+    height : 1.3em;
 }
 .social-icons a
 {
