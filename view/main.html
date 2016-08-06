@@ -1,12 +1,2 @@
-<main class="content" role="main">
-
-<% var Articles = require("articles"); %>
-<% var NameHandler = require("name_handler"); %>
-<% var Router = require("router")%>
-
-<% var article_groups = R.config("groups").map(function(group) { return R.dir(group); });%>
-<% var articles = (new Articles()).collect(article_groups); %>
-
+<% var page_index = 0; %>
 <%~ /articles.html %>
- 
-</main>

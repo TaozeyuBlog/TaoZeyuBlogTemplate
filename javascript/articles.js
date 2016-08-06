@@ -1,4 +1,6 @@
-var Articles = function() {
+var Page = require("/system/pages");
+
+function Articles() {
     this.articles = [];
 }
 
@@ -11,6 +13,10 @@ Articles.prototype.collect = function(dirs) {
         });
     });
     return this;
+}
+
+Articles.prototype.pages = function(num_each_page) {
+    return new Page(this.articles, num_each_page);
 }
 
 Articles.prototype.forEach = function() {

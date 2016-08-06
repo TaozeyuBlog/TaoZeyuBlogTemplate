@@ -1,8 +1,17 @@
+<% var Articles = require("articles"),
+       NameHandler = require("name_handler"),
+       Router = require("router");
+%>
+<% var article_groups = R.config("groups").map(function(group) { return R.dir(group); }),
+       articles = (new Articles()).collect(article_groups),
+       pages = articles.pages(2); 
+%>
 
-<% articles.forEach(function(article) { %>
+<% pages.elements_on_page(page_index).forEach(function(article) { %>
 
-<% var article_name = NameHandler.title_from_article_name(article.name); %>
-<% var date = NameHandler.date_from_article_name(article.name) %>
+<% var article_name = NameHandler.title_from_article_name(article.name),
+       date = NameHandler.date_from_article_name(article.name) 
+%>
 
 <article class="post type-post status-publish format-standard hentry category-casper tag-test-tag">
 		    <header class="post-header">
@@ -22,12 +31,25 @@
 
 <nav class="pagination navigation paging-navigation" role="navigation">
     <div class="nav-links">
+        <% if (page_index < pages.num_of_page - 1) { %>
         <div class="older-posts">
-            <a href="http://lacymorrow.com/projects/casper/?paged=2">
+            <a href="<%= Router.path_of_total_article_page(page_index + 1) %>">
                 Older Posts <span class="meta-nav">→</span>
             </a>
         </div>
-        <div class="page-number">Page 1 of 2</div>	
+        <% } %>
+        
+        <div class="page-number">
+            Page <%= page_index + 1 %> of <%= pages.num_of_page %>
+        </div>
+
+        <% if (page_index > 0) { %>
+        <div class="newer-posts">
+            <a href="<%= Router.path_of_total_article_page(page_index - 1) %>">
+                <span class="meta-nav">←</span> Newer Posts
+            </a>
+		</div>
+        <% } %>
     </div><!-- .nav-links -->
 </nav><!-- .navigation -->
     
