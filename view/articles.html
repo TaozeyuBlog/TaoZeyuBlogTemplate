@@ -3,7 +3,7 @@
        Router = require("router");
 %>
 <% var articles = (new Articles()).collect(article_groups),
-       pages = articles.pages(2); 
+       pages = articles.pages(5); 
 %>
 
 <% pages.elements_on_page(page_index).forEach(function(article) { %>
