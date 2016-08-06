@@ -6,6 +6,7 @@ conf.target_directory = "../Moskize91.github.io";
 conf.resource_directory = "../";
 
 conf.root_page = "/main.html";
+conf.linked_resource_assets_path = ["public", "media"];
 
 // port 8080
 // resource resource
