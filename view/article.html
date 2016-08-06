@@ -2,7 +2,7 @@
 <% var Articles = require("articles"); %>
 <% var NameHandler = require("name_handler"); %>
 <% var Router = require("router"); %>
-<% var article_groups = R.config("groups").map(function(group) { return R.dir(group); }); %>
+<% var article_groups = R.config("groups").map(function(group) { return R.dir(group.name); }); %>
 <% var articles = (new Articles()).collect(article_groups); %>
 
 <%  var article = null; 
@@ -58,6 +58,6 @@
                 </script>
             </div>
         </div>
-        
+
 	</footer>
 </article><!-- #post-## -->

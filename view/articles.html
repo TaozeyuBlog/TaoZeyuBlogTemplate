@@ -2,8 +2,7 @@
        NameHandler = require("name_handler"),
        Router = require("router");
 %>
-<% var article_groups = R.config("groups").map(function(group) { return R.dir(group); }),
-       articles = (new Articles()).collect(article_groups),
+<% var articles = (new Articles()).collect(article_groups),
        pages = articles.pages(2); 
 %>
 
@@ -33,7 +32,11 @@
     <div class="nav-links">
         <% if (page_index < pages.num_of_page - 1) { %>
         <div class="older-posts">
+            <% if (selected_group) { %>
+            <a href="<%= Router.path_of_group(selected_group, page_index + 1) %>">
+            <% } else { %>
             <a href="<%= Router.path_of_total_article_page(page_index + 1) %>">
+            <% } %>
                 Older Posts <span class="meta-nav">→</span>
             </a>
         </div>
@@ -45,7 +48,11 @@
 
         <% if (page_index > 0) { %>
         <div class="newer-posts">
+            <% if (selected_group) { %>
+            <a href="<%= Router.path_of_group(selected_group, page_index - 1) %>">
+            <% } else { %>
             <a href="<%= Router.path_of_total_article_page(page_index - 1) %>">
+            <% } %>
                 <span class="meta-nav">←</span> Newer Posts
             </a>
 		</div>

@@ -9,9 +9,11 @@
     <nav id="site-navigation" class="main-navigation" role="navigation">
         <div class="menu-main-container">
             <ul>
-            <% R.config("groups").forEach(function(group_name) { %>
+            <% R.config("groups").forEach(function(group) { %>
             <li>
-                <a href="/"><%= group_name %></a>
+                <a href="<%= require('router').path_of_group(group, 0) %>">
+                    <%= group.title %>
+                </a>
             </li>
             <% }); %>
             </ul>

@@ -1,0 +1,14 @@
+<% 
+    var params_map = params.pick('/:group_name/page/:page_index');
+    var group_name = params_map.group_name;
+    var page_index = params_map.page_index === undefined ? 0 : parseInt(params_map.page_index);
+
+    var selected_group = null;
+    R.config("groups").forEach(function(group) {
+        if (group.name == group_name) {
+            selected_group = group;
+        }
+    });
+    var article_groups = [R.dir(group_name)];
+%>
+<%~ /articles.html %>
