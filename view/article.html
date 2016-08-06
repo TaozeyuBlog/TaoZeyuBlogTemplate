@@ -1,0 +1,35 @@
+<% var Utils = require("/system/utils"); %>
+<% var Articles = require("articles"); %>
+<% var NameHandler = require("name_handler"); %>
+<% var Router = require("router"); %>
+<% var article_groups = R.config("groups").map(function(group) { return R.dir(group); }); %>
+<% var articles = (new Articles()).collect(article_groups); %>
+
+<%  var article = null; 
+    var title = params.pick(":title").title;
+    articles.forEach(function(art) {
+        if (Utils.convert_to_pinyin(art.name) == title) {
+            article = art;
+        }
+    });
+%>
+
+<% var article_name = NameHandler.title_from_article_name(article.name),
+       date = NameHandler.date_from_article_name(article.name) 
+%>
+
+<article id="post-1" class="post-1 post type-post status-publish format-standard hentry category-casper tag-test-tag">
+    <header class="post-header">
+        <span class="post-meta">
+            <span class="posted-on">
+                <time class="entry-date published"><%= date %></time>
+            </span>
+        </span>
+        <h1 class="post-title"><a href="<%= Router.path_of_article(article) %>" rel="bookmark"><%= article_name %></a></h1>
+    </header>
+
+    <section class="post-content">
+        <p><%= article.getHtmlContent() %></p>
+    </section>
+
+</article>

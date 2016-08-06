@@ -5,5 +5,8 @@ exports.path_of_article = function (article) {
 }
 
 exports.path_of_total_article_page = function(page_index) {
+    if (page_index == 0) {
+        return "/";
+    }
     return ["/page", page_index].join("/");
 }
