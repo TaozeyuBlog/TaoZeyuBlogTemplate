@@ -1,0 +1,13 @@
+prose:
+  rooturl: 'articles'
+  siteurl: 'http://taozeyu.com/'
+  media: 'media'
+  ignore:
+    - .calico
+    - /scripts
+  metadata:
+    articles:
+      - name: "original"
+        field:
+          element: "hidden"
+          value: "true"
