@@ -1,0 +1,62 @@
+<% var Articles = require("articles"),
+       NameHandler = require("name_handler"),
+       Router = require("router");
+%>
+<% var articles = (new Articles()).collect(article_groups),
+       pages = articles.pages(5); 
+%>
+
+<% pages.elements_on_page(page_index).forEach(function(article) { %>
+
+<% var article_name = NameHandler.title_from_article_name(article.name),
+       date = NameHandler.date_from_article_name(article.name) 
+%>
+
+<article class="post type-post status-publish format-standard hentry category-casper tag-test-tag">
+		    <header class="post-header">
+        		<span class="post-meta">
+			    <time class="entry-date published"><%= date %></time>
+				</span>
+		        <h1 class="post-title"><a href="<%= Router.path_of_article(article) %>" rel="bookmark"><%= article_name %></a></h1>
+         
+    </header>
+	<section class="post-content">
+<p><%= article.getAbstractContent(200) %><a href="<%= Router.path_of_article(article) %>" class="more-link">［more &nbsp;］<span class="meta-nav">→</span></a></p>
+	    		<div class="clear">&nbsp;</div>
+	</section>
+</article><!-- #post-## -->
+
+<% });%>
+
+<nav class="pagination navigation paging-navigation" role="navigation">
+    <div class="nav-links">
+        <% if (page_index < pages.num_of_page - 1) { %>
+        <div class="older-posts">
+            <% if (selected_group) { %>
+            <a href="<%= Router.path_of_group(selected_group, page_index + 1) %>">
+            <% } else { %>
+            <a href="<%= Router.path_of_total_article_page(page_index + 1) %>">
+            <% } %>
+                Older Posts <span class="meta-nav">→</span>
+            </a>
+        </div>
+        <% } %>
+        
+        <div class="page-number">
+            Page <%= "" + (page_index + 1) %> of <%= "" + (pages.num_of_page) %>
+        </div>
+
+        <% if (page_index > 0) { %>
+        <div class="newer-posts">
+            <% if (selected_group) { %>
+            <a href="<%= Router.path_of_group(selected_group, page_index - 1) %>">
+            <% } else { %>
+            <a href="<%= Router.path_of_total_article_page(page_index - 1) %>">
+            <% } %>
+                <span class="meta-nav">←</span> Newer Posts
+            </a>
+		</div>
+        <% } %>
+    </div><!-- .nav-links -->
+</nav><!-- .navigation -->
+    

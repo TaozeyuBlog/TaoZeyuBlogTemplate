@@ -1,47 +1,60 @@
 <html lan="zh-cmn-Hans" xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="/mdl-style.css" />
-		<script src="/mdl-min.js"></script>
-		<link rel="stylesheet" href="/styles.css">
-		<% if (template == "/index.html") { %>
-			<script type="text/javascript" src="/jquery.min.js"></script>
-			<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-			<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-		<% } %>
-		<title>
-			<% if (template == "/index.html") { %>
-				<%= R.page("/articles/"+ params).get("title") %> - 
-			<% } %> moskize 的博客
-		</title>
-	</head>
-	<body class="util-centered-container">
-    
-    <header class="tzy-header">
-        <span class="tzy-header__title">
-            <a href="/">Moskize's Blog</a>
-        </span>
-        <div class="tzy-header__elements">
-        <% var nodes = R.config("/nodes"); %>
-          <nav>
-              <% for (var nodeName in nodes) { %>
-              <a href="/nodes/<%= nodes[nodeName] %>.html">
-                <%= nodeName %>
-              </a>
-              <% } %>
-          </nav>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel='stylesheet' href='/css/style.css' type='text/css' media='all'/>
+</head>
+
+<header id="masthead" role="banner" class="site-head site-header" >
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+        <div class="menu-main-container">
+            <ul>
+            <% R.config("groups").forEach(function(group) { %>
+            <li>
+                <a href="<%= require('router').path_of_group(group, 0) %>">
+                    <%= group.title %>
+                </a>
+            </li>
+            <% }); %>
+            </ul>
         </div>
-        <div style="clear: both;"/>
-    </header>
-      
-    <main class="tzy-content util-centered-content">
-	    <%~ yield %>
-    </main>
-    
-    <div style="visibility: hidden;">
-	   <script src="http://s95.cnzz.com/z_stat.php?id=1257188682&web_id=1257188682" language="JavaScript"></script> 
+    </nav>
+
+    <div class="vertical-row">
+        <div class="vertical">
+            <h1 class="blog-title"><a class="blog-logo" href='/' rel='home'>moskize</a></h1>
+                <h2 class="blog-description">七牛云存储 iOS 开发工程师</h2>
+            </div>
+        </div>
+        <div class="site-head-content">
+            <div class="social-icons">
+                <a class="icon-home" target="_blank" title="Home" href="/">
+                    <img src="/img/Home.png"/>
+                </a>
+                <a class="icon-envelope" target="_blank" title="Email" href="mailto:xiangtantaozeyu@gmail.com">
+                    <img src="/img/Email.png"/>
+                </a>
+                <a class="icon-github-alt" target="_blank" title="GitHub" href="https://github.com/moskize91/">
+                    <img src="/img/GitHub.png"/>
+                </a>
+        </div>
     </div>
-    
-	</body>
+</header>
+
+<main class="content" role="main">
+    <%~ yield %>
+</main>
+
+<div class="widget-area" role="complementary">
+    <div class="clear">&nbsp;</div>
+</div><!-- #secondary -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info inner">
+		<section class="copyright">
+			Copyright©2014-2016, Tao Zeyu, All Rights Reserved		    
+		</section>
+	</div><!-- .site-info -->
+</footer><!-- #colophon -->
+
 </html>

@@ -1,14 +1,4 @@
-<div class="tzy-intro-card card">
-    <div class="tzy-intro-card__icon"></div>
-	<h1>moskize</h1>
-	<p>
-	远程工作者，搞 iOS 开发的。还拥有一个翻译社区，<a target="_blank" href="http://zyyywang.com">知言译义网</a>。有事可以与我联系 <a href="mailto:xiangtantaozeyu@icloud.com">xiangtantaozeyu@icloud.com</a>
-	</p>
-	<p>该博客是用我开发的<a target="_blank" href="https://github.com/Moskize91/Calico">Calico</a>生成，该工具目前挂在 Github 上。</p>
-	<div style="clear: both;"></div>
-</div>
-
-<%  session.hideNodeTitle = true;
-    var params = "0";
-%>
-<%~ /page.html %>
+<% article_groups = R.config("groups").map(function(group) { return R.dir("blog/"+ group.name); }); %>
+<% var selected_group = null; %>
+<% var page_index = 0; %>
+<%~ /articles.html %>
